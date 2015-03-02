@@ -61,10 +61,14 @@ void printOrientation(float x, float y, float z)
   roll = atan2(y, sqrt(x * x) + (z * z));
   pitch *= 180.0 / PI;
   roll *= 180.0 / PI;
-  
-  sprintf(str, "%.2f", pitch);
-  cout << "str" << str; 
-  fwrite (str, sizeof(char), sizeof(str), export_file);
+  if((int)pitch < 0)
+  {
+	pitch = 0;
+  }
+  sprintf(str, "A:%d", (int)pitch);
+  //cout << "str" << str; 
+  //fprintf(export_file, "%d", str);
+  fwrite (str, 1, sizeof(str), export_file);
   fwrite (endline, sizeof(char), sizeof(endline), export_file);
   fclose (export_file);
   
