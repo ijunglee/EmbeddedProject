@@ -16,6 +16,7 @@ int main() {
 		// To read from the accelerometer, you must first call the
 		// readAccel() function. When this exits, it'll update the
 		// ax, ay, and az variables with the most current data.
+		cout << "Helloworld" << endl;
 		dof.readAccel();
 
 		// Now we can use the ax, ay, and az variables as we please.
