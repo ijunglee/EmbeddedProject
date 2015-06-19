@@ -1,4 +1,4 @@
-#include "SFE_LSM9DS0.h"
+#include "lsm9ds0.h"
 #include <iostream>
 #include <unistd.h>
 
