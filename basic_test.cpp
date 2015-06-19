@@ -17,6 +17,7 @@ int main() {
 		// readAccel() function. When this exits, it'll update the
 		// ax, ay, and az variables with the most current data.
 		cout << "Helloworld" << endl;
+		cout << "Raccoon Dog !" << endl;
 		dof.readAccel();
 
 		// Now we can use the ax, ay, and az variables as we please.
