@@ -1,4 +1,5 @@
 #include "lsm9ds0.h"
+#include <math.h>
 #include <iostream>
 #include <unistd.h>
 
