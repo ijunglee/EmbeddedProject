@@ -109,6 +109,6 @@ int main() {
 		
 		//dof.readTemp();
 		//cout << "T: " << (21.0 + (float)dof.temperature/8.) << endl;
-		sleep(1);
+		sleep(0.5);
 	}
 }
