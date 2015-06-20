@@ -1,6 +1,6 @@
 #include <unistd.h>
- #include <stdio.h>
- using namespace std;
+#include <stdio.h>
+using namespace std;
 
  int main()
  {
@@ -9,8 +9,8 @@
          //char str1[] = "low";
          //char str2[] = "high";
          //char str[] = "60";                       //value to pass to export file
-         char str[] = "BB-UART1"
-         export_file = fopen ("/sys/devices/bone_capemgr.*/slots", "w");
+         char str[] = "BB-UART1";
+         export_file = fopen ("/dev/ttyO1", "w");
          fwrite (str, 1, sizeof(str), export_file);
          fclose (export_file);
  }
