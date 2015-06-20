@@ -2,6 +2,7 @@
 #include <math.h>
 #include <iostream>
 #include <unistd.h>
+#include <cstdlib>
 
 #define LSM9DS0_XM  0x1D // Would be 0x1E if SDO_XM is LOW
 #define LSM9DS0_G   0x6B // Would be 0x6A if SDO_G is LOW
@@ -110,5 +111,6 @@ int main() {
 		//dof.readTemp();
 		//cout << "T: " << (21.0 + (float)dof.temperature/8.) << endl;
 		sleep(0.5);
+		system("clear");
 	}
 }
