@@ -106,8 +106,7 @@ int main() {
 		// If you want to print calculated values, you can use the
 		// calcMag helper function to convert a raw ADC value to
 		// Gauss. Give the function the value that you want to convert.
-
-		
+		printOrientation(ax, ay, az);
 		//dof.readTemp();
 		//cout << "T: " << (21.0 + (float)dof.temperature/8.) << endl;
 		sleep(0.5);
