@@ -4,4 +4,4 @@ while 1:
 	string = ser.readline()
 	print string
 	#value = float(string)
-	#print "Float: "
+	#print "Float: "　
