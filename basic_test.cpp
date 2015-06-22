@@ -3,6 +3,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <cstdlib>
+#include <stdio.h>
 
 #define LSM9DS0_XM  0x1D // Would be 0x1E if SDO_XM is LOW
 #define LSM9DS0_G   0x6B // Would be 0x6A if SDO_G is LOW
@@ -11,7 +12,8 @@
 using namespace std;
 
 LSM9DS0 dof(1, LSM9DS0_G, LSM9DS0_XM);
-
+FILE *export_file = NULL;        //declare pointers
+FILE *IO_direction = NULL;
 // Here's a fun function to calculate your heading, using Earth's
 // magnetic field.
 // It only works if the sensor is flat (z-axis normal to Earth).
@@ -46,13 +48,27 @@ void printHeading(float hx, float hy)
 void printOrientation(float x, float y, float z)
 {
   float pitch, roll;
-
+  //FILE *export_file = NULL;        //declare pointers
+  //FILE *IO_direction = NULL;
+         //char str1[] = "low";
+         //char str2[] = "high";
+         //char str[] = "60";                       //value to pass to export file
+  char *str = new char;
+  char endline[] = "\n";
+  export_file = fopen ("/dev/ttyO1", "w");
+ 
   pitch = atan2(x, sqrt(y * y) + (z * z));
   roll = atan2(y, sqrt(x * x) + (z * z));
   pitch *= 180.0 / PI;
   roll *= 180.0 / PI;
-
-  cout << "Pitch, Roll: " << pitch << ", "<< roll << endl;
+  
+  sprintf(str, "%.2f", pitch);
+  cout << "str" << str; 
+  fwrite (str, sizeof(char), sizeof(str), export_file);
+  fwrite (endline, sizeof(char), sizeof(endline), export_file);
+  fclose (export_file);
+  
+  //cout << "Pitch, Roll: " << pitch << ", "<< roll << endl;
 /*
   Serial.print("Pitch, Roll: ");
   Serial.print(pitch, 2);
